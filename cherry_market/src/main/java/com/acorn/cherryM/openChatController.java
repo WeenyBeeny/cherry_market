@@ -21,7 +21,6 @@ public class openChatController {
 		String[] datas=data.split("!!!seperate!!!");
 		String mid=datas[0];
 		String occomment=datas[1];
-		System.out.println(occomment+mid);
 		openChatDto dto=new openChatDto();
 		dto.setMid(mid);
 		dto.setOccomment(occomment);
