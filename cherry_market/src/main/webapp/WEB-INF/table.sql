@@ -2,7 +2,7 @@
 CREATE TABLE members(
 	mnum NUMBER PRIMARY KEY,
 	mname VARCHAR2(100),
-	mid VARCHAR2(100) PRIMARY KEY,
+	mid VARCHAR2(100) not null,
 	mpwd VARCHAR2(100) NOT NULL,
 	memail VARCHAR2(100),
 	mprofile VARCHAR2(100), --프로필 이미지 경로를 저장할 칼럼
@@ -37,7 +37,7 @@ CREATE TABLE goods_file(
    gfregdate DATE
 );
 
-CREATE SEQUENCE goods_seq;
+CREATE SEQUENCE goodsf_seq;
 
 -- 이미지 겔러리를 만들기 위한 테이블 
 CREATE TABLE board_gallery(
@@ -49,4 +49,7 @@ CREATE TABLE board_gallery(
 );
 
 CREATE SEQUENCE board_gallery_seq;
+
+--openchat log sql
+create table openchat (mid varchar2(100),ocregdate number,occomment varchar2(400));
 
