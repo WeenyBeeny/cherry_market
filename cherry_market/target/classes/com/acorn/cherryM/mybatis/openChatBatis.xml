@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="openChat">
+	<select id="selectList" resultType="com.acorn.cherryM.openChatDto.openChatDto">
+		select mid,ocregdate,occomment from openchat order by ocregdate asc
+	</select>
+	
+	<insert id="insert" parameterType="com.acorn.cherryM.openChatDto.openChatDto">
+		insert into openchat values(#{mid},to_number(to_char(systimestamp,'yymmddhh24missff3')),#{occomment})
+	</insert>
+</mapper>
