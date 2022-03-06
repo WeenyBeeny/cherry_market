@@ -38,24 +38,20 @@
 			before=document.querySelector("#textBox").innerHTML;
 			data=data.replaceAll('\r','');
 			if(before!=data){
-				console.log(data);
 				document.querySelector("#textBox").innerHTML=data;
 				var objDiv = document.getElementById("textBox");
 				objDiv.scrollTop = objDiv.scrollHeight;
-				console.log("scrolldown");
 			}
 		})
 	}
 	let interval=setInterval(updateBox,50)
 	document.querySelector("#occomment").addEventListener("keyup",function(e){
-		if (e.key=="Enter"){
-
+		if (e.key=="Enter"&&this.value!=''){
 			fetch("uploadchat",{
 				method:"POST",
-				headers:{"Content-Type":"application/x-www-form-urlencoded; charset=utf-8"},
-				body:"data="+document.querySelector("#temp_id").value
-				+"!!!seperate!!!"
-				+document.querySelector("#occomment").value
+				headers:{'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'},
+				body:"mid="+document.querySelector("#temp_id").value+"&"+
+				"occomment="+document.querySelector("#occomment").value
 			})
 			.then();
 			updateBox();

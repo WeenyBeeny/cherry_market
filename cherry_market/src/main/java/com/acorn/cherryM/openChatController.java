@@ -1,6 +1,6 @@
 package com.acorn.cherryM;
 
-import javax.servlet.http.HttpServletRequest;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,15 +17,11 @@ public class openChatController {
 	private openChatService Service;
 	
 	@RequestMapping("/uploadchat")
-	public String uploadCaht(String data) {
-		String[] datas=data.split("!!!seperate!!!");
-		String mid=datas[0];
-		String occomment=datas[1];
+	public void uploadCaht(String mid,String occomment) {
 		openChatDto dto=new openChatDto();
 		dto.setMid(mid);
 		dto.setOccomment(occomment);
 		Service.insertText(dto);
-		return "openchat/n";
 	}
 	@RequestMapping("/updateBox")
 	public ModelAndView updateBox(ModelAndView mView) {
